@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    My Blog
+{% endblock %}
+
+{% block css_file %}
+    <link rel="stylesheet" href="{% static 'blog/post.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section id="welcome">
+        <header>
+            <img src="{% static 'images/fight.jpg' %}" alt="Abu - The Auther Of This Blog">
+            <h3>C-SQUAD BLOG</h3>
+        </header>
+        <p>Hi, I am Abu And I happy to blog about tech and world!</p>
+    </section>
+    <section id="latest-posts">
+        <h2>My latest posts</h2>
+        <ul>
+            {% for post in posts %}
+                {% include 'blog/includes/post.html' %}
+            {% endfor %}
+        </ul>
+    </section>
+    <section id="about">
+        <h2>What I Do</h2>
+        <p>I Love programming, I enjoy exploring new technologies</p>
+        <p>My goal is keep on ......</p>
+    </section>
+{% endblock %}
